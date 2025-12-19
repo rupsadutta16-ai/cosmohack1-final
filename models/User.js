@@ -2,7 +2,7 @@ const bcrypt = require("bcryptjs");
 const fs = require("fs");
 const path = require("path");
 
-// FIX 1: Point directly to users.json in the root folder (removes 'data' folder requirement)
+// Point directly to users.json
 const usersFilePath = path.join(__dirname, "../data/users.json");
 
 class User {
@@ -27,9 +27,51 @@ class User {
     }
   }
 
+  // --- MISSING METHOD ADDED HERE ---
+  static async create(userData) {
+    const users = this._getUsers();
+
+    // 1. Check for duplicates (username or email)
+    const existingUser = users.find(
+      (u) => u.username === userData.username || u.email === userData.email
+    );
+    if (existingUser) {
+      throw new Error("Username or Email already exists");
+    }
+
+    // 2. Hash the password
+    const hashedPassword = await bcrypt.hash(userData.password, 10);
+
+    // 3. Auto-increment ID
+    // Finds the highest ID in the list and adds 1. If list is empty, starts at 1.
+    const newId =
+      users.length > 0 ? Math.max(...users.map((u) => u.id)) + 1 : 1;
+
+    // 4. Create the new user object
+    const newUser = {
+      id: newId,
+      username: userData.username,
+      email: userData.email,
+      fullName: userData.fullName,
+      password: hashedPassword,
+      role: "user", // Default role
+      level: 1, // Default gamification stats
+      experiencePoints: 0,
+      completedTasks: [],
+      taskSubmissions: [],
+      createdAt: new Date().toISOString(),
+    };
+
+    // 5. Save to file
+    users.push(newUser);
+    this._saveUsers(users);
+
+    return newUser;
+  }
+
   static async findById(id) {
     const users = this._getUsers();
-    // FIX 2: Use loose equality (==) to match string "1" with number 1
+    // Use loose equality (==) to match string "1" with number 1
     return users.find((u) => u.id == id);
   }
 
@@ -70,5 +112,4 @@ class User {
   }
 }
 
-// FIX 3: Export the Class directly (Static methods)
 module.exports = User;
