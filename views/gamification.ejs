@@ -1,0 +1,157 @@
+<%- include('partials/header', { title: 'Gamified Learning - SecureGuard' }) %>
+<%- include('partials/sidebar', { page: 'gamification' }) %>
+
+<div class="main-content">
+  <div class="container">
+    <div class="fade-in-left">
+      <h1
+        class="text-gradient-emerald"
+        style="
+          background: var(--gradient-primary);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        "
+      >
+        🚀 Gamified Cyber Learning
+      </h1>
+      <p style="color: #94a3b8; margin-top: 0.5rem">
+        Enhance your cyber security knowledge, earn XP, and level up!
+      </p>
+    </div>
+
+    <% const nextLevelXP = user.level * 100; const progressPercent =
+    Math.min((user.experiencePoints / nextLevelXP) * 100, 100); %>
+
+    <div
+      class="glass-card fade-in-up"
+      style="margin-top: 2rem; border-left: 4px solid var(--accent-purple)"
+    >
+      <h3>Your Progress</h3>
+      <div
+        style="display: flex; align-items: center; gap: 1rem; margin-top: 1rem"
+      >
+        <span style="font-size: 2.5rem">⭐</span>
+        <div>
+          <p style="font-size: 1.2rem; margin: 0; color: #e2e8f0">
+            Level <span><%= user.level %></span>
+          </p>
+          <p style="font-size: 0.9rem; margin: 0; color: #94a3b8">
+            <span><%= user.experiencePoints %></span> /
+            <span><%= nextLevelXP %></span> XP
+          </p>
+        </div>
+      </div>
+
+      <div
+        style="
+          width: 100%;
+          background-color: #334155;
+          border-radius: 9999px;
+          height: 8px;
+          margin-top: 0.5rem;
+        "
+      >
+        <div
+          style="
+            background-color: var(--accent-purple);
+            height: 100%;
+            width: <%= progressPercent %>%;
+            border-radius: 9999px;
+            transition: width 0.5s ease-in-out;
+          "
+        ></div>
+      </div>
+    </div>
+
+    <div class="glass-card fade-in-up" style="margin-top: 2rem">
+      <h3>Available Learning Tasks</h3>
+
+      <div class="table-container" style="margin-top: 1rem; overflow-x: auto">
+        <table class="table task-table">
+          <thead>
+            <tr>
+              <th>Task Title</th>
+              <th>Description</th>
+              <th>XP Reward</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% if (tasks && tasks.length > 0) { %> <%
+            tasks.forEach(function(task) { %> <% const isCompleted =
+            user.completedTasks &&
+            user.completedTasks.includes(task.id.toString()); %>
+
+            <tr>
+              <td style="font-weight: 600; color: #fff"><%= task.title %></td>
+              <td style="color: #cbd5e1"><%= task.description %></td>
+              <td style="color: var(--accent-gold)">
+                +<%= task.experienceReward || 10 %> XP
+              </td>
+
+              <td>
+                <% if (isCompleted) { %>
+                <span
+                  class="badge"
+                  style="
+                    background: rgba(16, 185, 129, 0.2);
+                    color: #6ee7b7;
+                    padding: 4px 8px;
+                    border-radius: 4px;
+                    font-size: 0.85rem;
+                  "
+                >
+                  Completed
+                </span>
+                <% } else { %>
+                <span
+                  class="badge"
+                  style="
+                    background: rgba(245, 158, 11, 0.2);
+                    color: #fcd34d;
+                    padding: 4px 8px;
+                    border-radius: 4px;
+                    font-size: 0.85rem;
+                  "
+                >
+                  Pending
+                </span>
+                <% } %>
+              </td>
+
+              <td>
+                <a
+                  href="/gamification/<%= task.id %>"
+                  class="btn btn-primary"
+                  style="
+                    text-decoration: none;
+                    display: inline-block;
+                    font-size: 0.9rem;
+                    padding: 0.5rem 1rem;
+                  "
+                >
+                  <%= isCompleted ? 'Review' : 'Start Learning' %>
+                </a>
+              </td>
+            </tr>
+
+            <% }); %> <% } else { %>
+
+            <tr>
+              <td
+                colspan="5"
+                style="text-align: center; padding: 2rem; color: #94a3b8"
+              >
+                No learning tasks available at the moment.
+              </td>
+            </tr>
+            <% } %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('partials/footer') %>
