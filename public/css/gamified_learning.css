@@ -10,19 +10,35 @@
 }
 
 .hero h1 {
-  font-size: 2.8rem; /* Slightly larger for impact */
+  font-size: 2.8rem; 
   font-weight: 800;
-  background: linear-gradient(90deg, #34d399, #22d3ee);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
+  /* background: linear-gradient(90deg, #746805, #d4c119);  */
+  background: none;
+   background-clip: text;
+  -webkit-background-clip: text; 
+  /* color: transparent;  */
+  -webkit-text-fill-color: initial;
+  
   margin-bottom: 0.5rem;
-  letter-spacing: -1px;
+  letter-spacing: -1px; 
+}
+.hero h1 span:nth-child(2) {
+  background: linear-gradient(
+    90deg,
+   #C99700,
+    #FFD700,
+    #FFE066,
+    #FFD700,
+    #C99700
+  );
+  color: transparent;
+  -webkit-background-clip: text;
 }
 
+
+
 .hero p {
-  color: #94a3b8;
+  /* color: #94a3b8; */
   font-size: 1.1rem;
   max-width: 600px;
 }
@@ -68,6 +84,7 @@
   font-weight: 700;
   color: #f1f5f9;
   margin: 0;
+  
 }
 
 /* PROGRESS SECTION */
@@ -295,9 +312,12 @@
 .section-header {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 1.5rem;
   margin-bottom: 1.5rem;
+  
+  
 }
+
 
 .live-indicator {
   color: #ef4444;
