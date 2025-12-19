@@ -1,0 +1,66 @@
+<%- include('partials/header', { title: 'Daily task' }) %> <%-
+include('partials/sidebar', { page: 'gamified_learning' }) %>
+
+<div class="main-content">
+  <div class="container" style="max-width: 800px">
+    <a href="/gamified-learning" class="back-link">← Back</a>
+
+    <div class="glass-card" style="border-left: 4px solid #f59e0b">
+      <div
+        style="
+          display: flex;
+          justify-content: space-between;
+          align-items: start;
+        "
+      >
+        <div>
+          <span style="color: #f59e0b; font-weight: 700; font-size: 0.9rem"
+            >DAILY MISSION</span
+          >
+          <h1 style="margin: 0.5rem 0; font-size: 2rem"><%= task.title %></h1>
+        </div>
+        <div
+          style="
+            background: rgba(245, 158, 11, 0.1);
+            color: #fbbf24;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-weight: 700;
+          "
+        >
+          +<%= task.xp %> XP
+        </div>
+      </div>
+
+      <p style="margin-top: 1rem; font-size: 1.1rem; color: #e2e8f0">
+        <%= task.description %>
+      </p>
+
+      <div
+        style="
+          margin-top: 2rem;
+          background: rgba(0, 0, 0, 0.3);
+          padding: 1.5rem;
+          border-radius: 8px;
+        "
+      >
+        <h4 style="margin-bottom: 0.5rem; color: #94a3b8">Task:</h4>
+        <p style="color: #fff; font-family: monospace">
+          Analyze the email header provided in the sandbox.
+        </p>
+      </div>
+
+      <form
+        action="/gamification/complete-task"
+        method="POST"
+        style="margin-top: 2rem"
+      >
+        <input type="hidden" name="taskId" value="<%= task.id %>" />
+        <button type="submit" class="btn btn-primary" style="width: 100%">
+          Mark Complete
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+<%- include('partials/footer') %>

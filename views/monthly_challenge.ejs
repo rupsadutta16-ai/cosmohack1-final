@@ -1,0 +1,135 @@
+<%- include('partials/header', { title: 'Monthly Operation' }) %> <%-
+include('partials/sidebar', { page: 'gamified_learning' }) %>
+
+<div class="main-content">
+  <div class="container">
+    <a href="/gamified-learning" class="back-link">← Back to Dashboard</a>
+
+    <div
+      class="glass-card"
+      style="
+        border-top: 4px solid #a855f7;
+        padding: 3rem;
+        text-align: center;
+        background: linear-gradient(
+          180deg,
+          rgba(168, 85, 247, 0.1) 0%,
+          rgba(2, 6, 23, 0) 100%
+        );
+      "
+    >
+      <span
+        style="
+          color: #a855f7;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 2px;
+        "
+      >
+        ★ <%= task.type %> ★
+      </span>
+      <h1
+        style="
+          margin: 1rem 0;
+          font-size: 3rem;
+          text-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
+        "
+      >
+        <%= task.title %>
+      </h1>
+      <p
+        style="
+          color: #e2e8f0;
+          font-size: 1.2rem;
+          max-width: 600px;
+          margin: 0 auto;
+        "
+      >
+        <%= task.description %>
+      </p>
+
+      <div style="margin-top: 2rem">
+        <span
+          class="xp-badge"
+          style="font-size: 1.2rem; padding: 0.5rem 1.5rem"
+        >
+          💎 <%= task.xp %> XP REWARD
+        </span>
+      </div>
+    </div>
+
+    <div class="glass-card" style="margin-top: 2rem">
+      <h3>📁 Classified Mission Files</h3>
+      <div
+        style="
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 1rem;
+          margin-top: 1.5rem;
+        "
+      >
+        <div
+          style="
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+          "
+        >
+          <div style="font-size: 2rem; margin-bottom: 0.5rem">🏢</div>
+          <div style="font-weight: 600">Target Info</div>
+        </div>
+        <div
+          style="
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+          "
+        >
+          <div style="font-size: 2rem; margin-bottom: 0.5rem">🔓</div>
+          <div style="font-weight: 600">Vulnerabilities</div>
+        </div>
+        <div
+          style="
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+          "
+        >
+          <div style="font-size: 2rem; margin-bottom: 0.5rem">📜</div>
+          <div style="font-weight: 600">Rules of Engagement</div>
+        </div>
+      </div>
+
+      <div
+        style="
+          margin-top: 2rem;
+          border-top: 1px solid rgba(255, 255, 255, 0.1);
+          padding-top: 2rem;
+        "
+      >
+        <h3>🛑 Mission Debrief & Submission</h3>
+        <form action="/gamification/complete-task" method="POST">
+          <input type="hidden" name="taskId" value="<%= task.id %>" />
+          <p style="color: #94a3b8; margin-bottom: 1rem">
+            Confirm you have obtained root access and retrieved the flag.
+          </p>
+          <button
+            type="submit"
+            class="btn btn-primary"
+            style="
+              background: linear-gradient(90deg, #a855f7, #7e22ce);
+              width: 100%;
+              padding: 1rem;
+            "
+          >
+            MISSION ACCOMPLISHED - SUBMIT
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<%- include('partials/footer') %>

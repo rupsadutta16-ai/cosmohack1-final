@@ -5,13 +5,10 @@
   <div class="game-container">
     <section class="hero fade-in-left">
       <h1>
-        <span style=" -webkit-text-fill-color: initial; background: none">🚀</span>
-        <span 
-          style="
-            
-            text-shadow: 0 0 20px rgba(252, 211, 77, 0.2);
-          "
+        <span style="-webkit-text-fill-color: initial; background: none"
+          >🚀</span
         >
+        <span style="text-shadow: 0 0 20px rgba(252, 211, 77, 0.2)">
           Gamified Cyber Challenges
         </span>
       </h1>
@@ -66,10 +63,7 @@
           </div>
         </div>
         <div class="action">
-          <form
-            action="/missions/start/<%= weeklyChallenges.active.id %>"
-            method="POST"
-          >
+          <form action="/missions/start/w-active" method="POST">
             <button type="submit" class="btn-challenge">Enter Challenge</button>
           </form>
         </div>
@@ -97,8 +91,8 @@
     </section>
 
     <section class="challenge-section fade-in-up" style="margin-top: 3rem">
-      <div  class="section-header ">
-        <h2  class="heading-purple">🌕 Monthly Operations</h2>
+      <div class="section-header">
+        <h2 class="heading-purple">🌕 Monthly Operations</h2>
       </div>
 
       <div class="challenge-card active-card monthly-theme">
@@ -125,10 +119,7 @@
           </div>
         </div>
         <div class="action">
-          <form
-            action="/missions/start/<%= monthlyChallenges.active.id %>"
-            method="POST"
-          >
+          <form action="/missions/start/m-active" method="POST">
             <button type="submit" class="btn-challenge">Join Operation</button>
           </form>
         </div>
@@ -161,7 +152,7 @@
           <span class="xp">+<%= mission.xp %> XP</span>
           <h3><%= mission.title %></h3>
           <p><%= mission.description %></p>
-          <form action="/missions/start/<%= mission.id %>" method="POST">
+          <form action="/daily-challenge" method="GET">
             <button type="submit">Start</button>
           </form>
         </div>

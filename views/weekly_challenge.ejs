@@ -1,0 +1,98 @@
+<%- include('partials/header', { title: 'Weekly Sprint' }) %> <%-
+include('partials/sidebar', { page: 'gamified_learning' }) %>
+
+<div class="main-content">
+  <div class="container">
+    <a href="/gamified-learning" class="back-link">← Back to Dashboard</a>
+
+    <div
+      class="glass-card"
+      style="border-top: 4px solid #10b981; padding: 2rem; text-align: center"
+    >
+      <span
+        style="
+          color: #10b981;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+        "
+      >
+        <%= task.type %>
+      </span>
+      <h1 style="margin: 0.5rem 0; font-size: 2.5rem"><%= task.title %></h1>
+      <p style="color: #94a3b8; font-size: 1.1rem"><%= task.description %></p>
+
+      <div
+        style="
+          display: flex;
+          justify-content: center;
+          gap: 2rem;
+          margin-top: 1.5rem;
+        "
+      >
+        <div
+          style="
+            background: rgba(16, 185, 129, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            color: #34d399;
+          "
+        >
+          ⚡ Reward: <strong><%= task.xp %> XP</strong>
+        </div>
+        <div
+          style="
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            color: #cbd5e1;
+          "
+        >
+          🕒 Ends: <strong><%= task.endDate %></strong>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="dashboard-grid"
+      style="grid-template-columns: 1fr 1fr; margin-top: 2rem"
+    >
+      <div class="glass-card">
+        <h3>📋 Mission Brief</h3>
+        <p style="color: #cbd5e1; line-height: 1.6; margin-top: 1rem">
+          The simulated banking application has reported unusual database
+          activity. Your task is to analyze the query logs, identify the
+          injection point, and apply the correct input sanitization function.
+        </p>
+        <button class="btn btn-secondary" style="margin-top: 1rem; width: 100%">
+          Access Virtual Lab
+        </button>
+      </div>
+
+      <div class="glass-card">
+        <h3>✅ Submission</h3>
+        <form action="/gamification/complete-task" method="POST">
+          <input type="hidden" name="taskId" value="<%= task.id %>" />
+
+          <div class="info-box" style="margin-top: 1rem">
+            <h4>Validation</h4>
+            <p>
+              Once you have patched the vulnerability, the system will generate
+              a hash code. Enter it below (simulated).
+            </p>
+          </div>
+
+          <div class="checkbox-wrapper">
+            <input type="checkbox" id="confirm" required />
+            <label for="confirm">I have completed the objective</label>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%">
+            Claim Weekly Reward
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<%- include('partials/footer') %>

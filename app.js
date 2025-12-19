@@ -580,17 +580,83 @@ app.get("/gamified-learning", requireAuth, async (req, res) => {
 // Handle "Start Mission" Button Click
 app.post("/missions/start/:id", requireAuth, (req, res) => {
   const missionId = req.params.id;
-  console.log(
-    `[Server] User ${req.session.user.username} started mission ${missionId}`
-  );
+  console.log(`[Server] Starting mission: ${missionId}`);
 
-  if (missionId == 101) {
-    return res.redirect("/gamification/task/1");
+  // Logic: Redirect to the specific GET route for that challenge
+  if (missionId === "w-active") {
+    return res.redirect("/weekly-challenge"); // Redirects to the GET route below
   }
+
+  if (missionId === "m-active") {
+    return res.redirect("/monthly-challenge");
+  }
+
+  // For daily missions, map them to specific tasks or a generic daily page
+  if (!isNaN(parseInt(missionId))) {
+    return res.redirect("/daily-challenge");
+  }
+
+  // Fallback
   res.redirect("/gamified-learning");
 });
 
-// Leaderboard Page
+// Weekly Challenge Page Route
+
+app.get("/weekly-challenge", requireAuth, async (req, res) => {
+  const user = await User.findById(req.session.user.id);
+
+  const task = {
+    id: "w-active",
+    title: "Weekly: The SQL Injection Sprint",
+    description:
+      "Your goal is to identify and patch 3 SQL vulnerabilities in the dummy bank app within 60 minutes.",
+    videoUrl: "",
+    documentation:
+      "Read about SQL Injection prevention cheatsheets before starting.",
+    miniTaskDescription: "Submit the flag found in the admin database table.",
+    experienceReward: 500,
+  };
+
+  res.render("weekly_challenge", { task, user, page: "gamified_learning" });
+});
+
+// Monthly Challenge Page Route
+
+app.get("/monthly-challenge", requireAuth, async (req, res) => {
+  const user = await User.findById(req.session.user.id);
+
+  const task = {
+    id: "m-active",
+    title: "Monthly: Red Team Operation Alpha",
+    description:
+      "This is a full-scale penetration test simulation. Root access required.",
+    videoUrl: "",
+    documentation: "Review the Rules of Engagement (RoE) document.",
+    miniTaskDescription: "Upload the root.txt hash code.",
+    experienceReward: 2500,
+  };
+
+  res.render("monthly_challenge", { task, user, page: "gamified_learning" });
+});
+
+// Daily Challenge Page Route
+
+app.get("/daily-challenge", requireAuth, async (req, res) => {
+  const user = await User.findById(req.session.user.id);
+
+  const task = {
+    id: "daily-generic",
+    title: "Daily Mission",
+    description: "Complete your daily quick-fire cybersecurity task.",
+    documentation: "Quick tip: Always check the sender's email address.",
+    miniTaskDescription: "Mark this task as complete to keep your streak.",
+    experienceReward: 50,
+  };
+
+  res.render("daily_challenge", { task, user, page: "gamified_learning" });
+});
+
+// Leaderboard Page Route
 
 app.get("/leaderboard", requireAuth, (req, res) => {
   res.render("leaderboard", { user: req.session.user, page: "leaderboard" });
