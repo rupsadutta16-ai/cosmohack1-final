@@ -3,191 +3,85 @@
     <%- include('partials/sidebar', { page: 'landing' }) %>
       <% } %>
 
-        <style>
-          .landing-container {
-            background: #0f172a;
-            color: white;
-            display: flex;
-            min-height: 100vh;
-            align-items: center;
-            justify-content: center;
-            gap: 3rem;
-            padding: 0 5rem;
-            width: full;
-            margin-top: -2rem;
+        <main class="w-full min-h-[calc(100vh-4rem)] flex items-center justify-center p-4 sm:p-8 lg:p-20 -mt-4">
+          <div class="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
-          }
-
-          .left-side {
-            width: 65%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-
-          }
-
-          .left-side h2 {
-            font-size: 3.2rem;
-            line-height: 1.2;
-            margin-bottom: 1rem;
-            color: rgb(12, 207, 142);
-          }
-
-          .left-side p {
-            color: #94a3b8;
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-          }
-
-          .btn-group {
-            display: flex;
-            gap: 2rem;
-          }
-
-          .btn {
-            padding: 0.5rem 2rem;
-
-            border-radius: 8px;
-            text-decoration: none;
-            transition: transform 0.2s, box-shadow 0.2s;
-            font-size: 1.2rem
-          }
-
-          .btn-primary {
-            background: #06b6d4;
-            color: white;
-          }
-
-          .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(6, 182, 212, 0.4);
-          }
-
-          .btn-secondary {
-            background: #334155;
-            color: white;
-          }
-
-          .btn-secondary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(100, 115, 133, 0.4);
-          }
-
-          .right-side {
-            width: 35%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-          }
-
-          /* Flowchart */
-          .flowchart {
-            display: flex;
-            flex-direction: column;
-            gap: 2.2rem;
-            position: relative;
-          }
-
-          .flow-step:hover {
-            transform: scale(1.02);
-            box-shadow: 0 10px 20px rgba(16, 185, 129, 0.4);
-
-
-          }
-
-          .flow-step {
-            background: #1e293b;
-            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
-
-            padding: 1rem 1.5rem;
-            border-radius: 12px;
-            text-align: center;
-            position: relative;
-            min-width: 180px;
-            font-weight: 600;
-            color: #fff;
-          }
-
-          .flow-step::after {
-            content: '';
-            position: absolute;
-            width: 2px;
-            height: 50px;
-            background: #06b6d4;
-            left: 50%;
-            bottom: -50px;
-            transform: translateX(-50%);
-          }
-
-          .flow-step:last-child::after {
-            display: none;
-          }
-
-          .arrow {
-            position: absolute;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-left: 8px solid transparent;
-            border-right: 8px solid transparent;
-            border-top: 12px solid #06b6d4;
-            transform: translateX(-50%);
-            top: 125%;
-
-          }
-
-          @media (max-width: 1024px) {
-            .landing-container {
-              flex-direction: column-reverse;
-              gap: 3rem;
-              padding: 2rem 1rem;
-            }
-
-            .left-side {
-              text-align: center;
-            }
-
-            .right-side {
-              justify-content: center;
-              align-items: flex-start;
-            }
-          }
-        </style>
-
-        <div class="landing-container">
-          <div class="left-side">
-            <h2>
-              Train Yourself with <span style="color: cyan">SecureGuard</span> to Avoid Cyber Attcaks & Cyber Crimes
-            </h2>
-            <p>
-              Learn to spot, analyze, and respond to phishing attempts in a fun and interactive way. Protect yourself
-              and your organization from cyber threats.
-            </p>
-            <div class="btn-group">
-              <a href="/login" class="btn btn-primary">Login</a>
-              <a href="/signup" class="btn btn-secondary">Sign Up</a>
+            <!-- Left Side Content -->
+            <div class="flex flex-col text-center lg:text-left space-y-6">
+              <h2 class="text-4xl sm:text-5xl font-extrabold leading-tight text-slate-900 dark:text-white">
+                Train Yourself with
+                <span class="text-cyan-500 dark:text-cyan-400">SecureGuard</span>
+                to Avoid Cyber Attacks & Crimes
+              </h2>
+              <p class="text-lg sm:text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto lg:mx-0">
+                Learn to spot, analyze, and respond to phishing attempts in a fun and interactive way. Protect
+                yourself and your organization from cyber threats.
+              </p>
+              <div class="flex gap-4 justify-center lg:justify-start pt-4">
+                <a href="/login"
+                  class="px-8 py-3 rounded-lg bg-cyan-500 hover:bg-cyan-600 text-white font-semibold text-lg shadow-lg shadow-cyan-500/30 transition-all transform hover:-translate-y-1">
+                  Login
+                </a>
+                <a href="/signup"
+                  class="px-8 py-3 rounded-lg bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 text-slate-900 dark:text-white font-semibold text-lg transition-all transform hover:-translate-y-1">
+                  Sign Up
+                </a>
+              </div>
             </div>
-          </div>
 
-          <div class="right-side">
-            <div class="flowchart">
-              <div class="flow-step">
+            <!-- Right Side Flowchart -->
+            <div class="flex flex-col items-center justify-center space-y-4">
+
+              <!-- Step 1 -->
+              <div
+                class="w-64 p-4 rounded-xl bg-white dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 shadow-xl text-center font-bold text-slate-800 dark:text-white relative group transition-all hover:scale-105 hover:shadow-cyan-500/20 hover:border-cyan-400">
                 Receive Email
-                <div class="arrow"></div>
               </div>
-              <div class="flow-step">
+
+              <!-- Arrow -->
+              <div class="text-cyan-500 dark:text-cyan-400 animate-bounce">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3">
+                  </path>
+                </svg>
+              </div>
+
+              <!-- Step 2 -->
+              <div
+                class="w-64 p-4 rounded-xl bg-white dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 shadow-xl text-center font-bold text-slate-800 dark:text-white relative group transition-all hover:scale-105 hover:shadow-cyan-500/20 hover:border-cyan-400">
                 Analyze Links & Attachments
-                <div class="arrow"></div>
               </div>
-              <div class="flow-step">
+
+              <!-- Arrow -->
+              <div class="text-cyan-500 dark:text-cyan-400 animate-bounce">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3">
+                  </path>
+                </svg>
+              </div>
+
+              <!-- Step 3 -->
+              <div
+                class="w-64 p-4 rounded-xl bg-white dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 shadow-xl text-center font-bold text-slate-800 dark:text-white relative group transition-all hover:scale-105 hover:shadow-cyan-500/20 hover:border-cyan-400">
                 Verify & Decide
-                <div class="arrow"></div>
               </div>
-              <div class="flow-step">
+
+              <!-- Arrow -->
+              <div class="text-cyan-500 dark:text-cyan-400 animate-bounce">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3">
+                  </path>
+                </svg>
+              </div>
+
+              <!-- Step 4 -->
+              <div
+                class="w-64 p-4 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500 text-white shadow-xl text-center font-bold relative group transition-all hover:scale-105 hover:shadow-cyan-500/40">
                 Learn & Reinforce
               </div>
+
             </div>
           </div>
-        </div>
+        </main>
 
         <%- include('partials/footer') %>

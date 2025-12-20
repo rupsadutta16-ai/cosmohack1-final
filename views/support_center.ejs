@@ -1,136 +1,106 @@
 <%- include('partials/header', { title: 'Support | SecureGuard' }) %>
 
-<main
-  class="w-full min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300"
->
-  <section class="bg-indigo-700 dark:bg-indigo-900 py-20">
-    <div class="max-w-4xl mx-auto px-4 text-center">
-      <h1 class="text-3xl font-bold text-white mb-6">
-        How can we help you today?
-      </h1>
-      <div class="relative max-w-2xl mx-auto">
-        <input
-          type="text"
-          placeholder="Search for answers (e.g. 'How to create a campaign')"
-          class="w-full py-4 px-6 rounded-full shadow-lg text-gray-800 focus:outline-none focus:ring-4 focus:ring-indigo-400"
-        />
-        <button
-          class="absolute right-2 top-2 bg-indigo-600 text-white rounded-full p-2 w-10 h-10 hover:bg-indigo-800 transition flex items-center justify-center"
-        >
-          🔍
-        </button>
+  <main class="w-full min-h-screen">
+    <section class="bg-indigo-700 dark:bg-indigo-900 py-20">
+      <div class="max-w-4xl mx-auto px-4 text-center">
+        <h1 class="text-3xl font-bold text-white mb-6">
+          How can we help you today?
+        </h1>
+        <div class="relative max-w-2xl mx-auto">
+          <input type="text" placeholder="Search for answers (e.g. 'How to create a campaign')"
+            class="w-full py-4 px-6 rounded-full shadow-lg text-gray-800 focus:outline-none focus:ring-4 focus:ring-indigo-400" />
+          <button
+            class="absolute right-2 top-2 bg-indigo-600 text-white rounded-full p-2 w-10 h-10 hover:bg-indigo-800 transition flex items-center justify-center">
+            🔍
+          </button>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 -mt-10">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <a
-        href="#"
-        class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-8 text-center hover:shadow-xl transition transform hover:-translate-y-1"
-      >
-        <div
-          class="w-14 h-14 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl"
-        >
-          🚀
-        </div>
-        <h3 class="text-lg font-bold text-gray-900 dark:text-white">
-          Getting Started
-        </h3>
-        <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">
-          Installation, setup, and first steps.
-        </p>
-      </a>
-      <a
-        href="#"
-        class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-8 text-center hover:shadow-xl transition transform hover:-translate-y-1"
-      >
-        <div
-          class="w-14 h-14 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl"
-        >
-          💳
-        </div>
-        <h3 class="text-lg font-bold text-gray-900 dark:text-white">
-          Billing & Account
-        </h3>
-        <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">
-          Manage subscriptions and payment methods.
-        </p>
-      </a>
-      <a
-        href="#"
-        class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-8 text-center hover:shadow-xl transition transform hover:-translate-y-1"
-      >
-        <div
-          class="w-14 h-14 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl"
-        >
-          ⚙️
-        </div>
-        <h3 class="text-lg font-bold text-gray-900 dark:text-white">
-          Technical Issues
-        </h3>
-        <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">
-          Troubleshooting, API docs, and bugs.
-        </p>
-      </a>
-    </div>
-  </section>
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 -mt-10">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <a href="#"
+          class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-8 text-center hover:shadow-xl transition transform hover:-translate-y-1">
+          <div
+            class="w-14 h-14 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+            🚀
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 dark:text-white">
+            Getting Started
+          </h3>
+          <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">
+            Installation, setup, and first steps.
+          </p>
+        </a>
+        <a href="#"
+          class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-8 text-center hover:shadow-xl transition transform hover:-translate-y-1">
+          <div
+            class="w-14 h-14 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+            💳
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 dark:text-white">
+            Billing & Account
+          </h3>
+          <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">
+            Manage subscriptions and payment methods.
+          </p>
+        </a>
+        <a href="#"
+          class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-8 text-center hover:shadow-xl transition transform hover:-translate-y-1">
+          <div
+            class="w-14 h-14 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+            ⚙️
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 dark:text-white">
+            Technical Issues
+          </h3>
+          <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">
+            Troubleshooting, API docs, and bugs.
+          </p>
+        </a>
+      </div>
+    </section>
 
-  <section class="max-w-4xl mx-auto px-4 py-12">
-    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-8">
-      Frequently Asked Questions
-    </h2>
-    <div class="space-y-4">
-      <details
-        class="group bg-white dark:bg-gray-800 rounded-lg shadow-sm p-4 cursor-pointer"
-      >
-        <summary
-          class="flex justify-between font-medium text-gray-900 dark:text-white list-none"
-        >
-          <span>How do I interpret the phishing score?</span>
-          <span class="transition group-open:rotate-180">▼</span>
-        </summary>
-        <p
-          class="text-gray-600 dark:text-gray-300 mt-4 text-sm leading-relaxed"
-        >
-          The score is calculated based on click rate, reporting rate, and time
-          to report. A higher score means your organization is more resilient.
-        </p>
-      </details>
-      <details
-        class="group bg-white dark:bg-gray-800 rounded-lg shadow-sm p-4 cursor-pointer"
-      >
-        <summary
-          class="flex justify-between font-medium text-gray-900 dark:text-white list-none"
-        >
-          <span>Is the training content customizable?</span>
-          <span class="transition group-open:rotate-180">▼</span>
-        </summary>
-        <p
-          class="text-gray-600 dark:text-gray-300 mt-4 text-sm leading-relaxed"
-        >
-          Yes! Pro and Enterprise plans allow you to edit email templates and
-          create custom landing pages for your simulations.
-        </p>
-      </details>
-    </div>
-  </section>
+    <section class="max-w-4xl mx-auto px-4 py-12">
+      <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-8">
+        Frequently Asked Questions
+      </h2>
+      <div class="space-y-4">
+        <details class="group bg-white dark:bg-gray-800 rounded-lg shadow-sm p-4 cursor-pointer">
+          <summary class="flex justify-between font-medium text-gray-900 dark:text-white list-none">
+            <span>How do I interpret the phishing score?</span>
+            <span class="transition group-open:rotate-180">▼</span>
+          </summary>
+          <p class="text-gray-600 dark:text-gray-300 mt-4 text-sm leading-relaxed">
+            The score is calculated based on click rate, reporting rate, and time
+            to report. A higher score means your organization is more resilient.
+          </p>
+        </details>
+        <details class="group bg-white dark:bg-gray-800 rounded-lg shadow-sm p-4 cursor-pointer">
+          <summary class="flex justify-between font-medium text-gray-900 dark:text-white list-none">
+            <span>Is the training content customizable?</span>
+            <span class="transition group-open:rotate-180">▼</span>
+          </summary>
+          <p class="text-gray-600 dark:text-gray-300 mt-4 text-sm leading-relaxed">
+            Yes! Pro and Enterprise plans allow you to edit email templates and
+            create custom landing pages for your simulations.
+          </p>
+        </details>
+      </div>
+    </section>
 
-  <section
-    class="bg-gray-100 dark:bg-gray-800 py-12 text-center mt-8 border-t border-gray-200 dark:border-gray-700"
-  >
-    <h3 class="text-xl font-bold text-gray-900 dark:text-white">
-      Still can't find what you're looking for?
-    </h3>
-    <p class="text-gray-500 dark:text-gray-400 mt-2 mb-6">
-      Our security experts are here to help.
-    </p>
-    <button
-      class="bg-indigo-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition shadow-lg"
-    >
-      Contact Support
-    </button>
-  </section>
-</main>
+    <section class="py-12 text-center mt-8 border-t border-gray-200 dark:border-gray-700">
+      <h3 class="text-xl font-bold text-gray-900 dark:text-white">
+        Still can't find what you're looking for?
+      </h3>
+      <p class="text-gray-500 dark:text-gray-400 mt-2 mb-6">
+        Our security experts are here to help.
+      </p>
+      <button
+        class="bg-indigo-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition shadow-lg">
+        Contact Support
+      </button>
+    </section>
+  </main>
 
-<%- include('partials/footer') %>
+  <%- include('partials/footer') %>
