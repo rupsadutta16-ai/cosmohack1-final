@@ -1,149 +1,127 @@
-# 🛡️ PhishGuard - Phishing Awareness Simulation Tool
+# 🛡️ SecureGuard - Phishing Awareness & Security Platform
 
-A comprehensive phishing awareness simulation tool built with Node.js, Express, and EJS featuring a stunning purple and black glassmorphism theme.
+**SecureGuard** is a next-generation Phishing Awareness Simulation and Gamified Learning tool designed to train individuals and organizations against cyber threats. It combines realistic phishing simulations with interactive challenges, all wrapped in a stunning, modern **Glassmorphism UI** that supports both Light and Dark themes.
 
-## ✨ Features
+---
 
-- **Admin Dashboard** with real-time statistics and charts
-- **User Management** with group organization
-- **Email Template Builder** with rich text editor
-- **Campaign Management** with scheduling capabilities
-- **Tracking System** for click monitoring
-- **Glassmorphism UI** with purple/black theme
-- **Responsive Design** for all devices
+## ✨ Key Features
 
-## 🚀 Quick Start
+### 🚀 **Core Functionality**
+- **Admin Dashboard:** Comprehensive overview of total users, active campaigns, click rates, and template statistics with interactive charts.
+- **Campaign Management:** Create, schedule, and launch phishing simulations to test organizational readiness.
+- **Email Template System:** Design and manage realistic email templates (Phishing, Spear Phishing) for simulutions.
+- **User Management:** Admin tools to add, edit, and manage user groups and statuses.
 
-1. **Install Dependencies**
+### 🎮 **Gamified Learning**
+- **Interactive Challenges:** Engage with Weekly `Active`, `Next`, `Past` sprints and Monthly Operations.
+- **XP & Leveling System:** Earn XP by completing tasks, level up, and unlock achievements.
+- **Leaderboard:** Compete with peers for the top rank based on security knowledge.
+- **Badges:** Unlock visual badges for milestones (e.g., "Level 5 Guardian", "XP Millionaire").
 
+### 🛠️ **Security Tools**
+- **URL Scanner:** Analyze suspicious links for potential threats.
+- **Breach Search:** Check if emails have been compromised in data leaks.
+- **Dark Web Monitor:** Search for exposed personal data on the dark web.
+- **Phone Validator:** Verify phone numbers and check for spam/scam indicators.
+- **File Scanner:** Analyze file hashes for malware.
+
+### 🎨 **UI/UX Excellence**
+- **Modern Glassmorphism:** A premium aesthetic using backdrop filters, gradients, and animated cards.
+- **Dual Theme Support:** Fully functional **Light** and **Dark** modes with a persistent toggle.
+- **Responsive Design:** Optimized for desktops, tablets, and mobile devices.
+- **Tailwind CSS Integration:** Utilizing utility-first CSS for robust styling.
+
+---
+
+## 🛠️ Technology Stack
+
+- **Backend:** Node.js, Express.js
+- **Frontend:** EJS (Embedded JavaScript Templating), Vanilla CSS, Tailwind CSS
+- **Data Visualization:** Chart.js
+- **Authentication:** Passport.js, Bcryptjs, Express-Session
+- **Dependencies:** `dotenv`, `nodemailer`, `pg`, `sequelize`
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js (v14 or higher)
+- npm (Node Package Manager)
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone <repository_url>
+   cd cosmohack1-final
+   ```
+
+2. **Install dependencies**
    ```bash
    npm install
    ```
 
-2. **Setup Environment Variables**
-
-   Create a `.env` file in the root directory:
-
+3. **Environment Setup**
+   Create a `.env` file in the root directory based on `.env.example`:
    ```bash
-   cp .env.example .env
+   PORT=3000
+   SESSION_SECRET=your_secret_key
+   IPQS_API_KEY=your_ipqualityscore_api_key  # Optional: For Security Tools
    ```
 
-   Then edit `.env` and add your IPQualityScore API key (optional, but required for security scanning features):
-
-   ```env
-   IPQS_API_KEY=your_api_key_here
+4. **Run the Application**
+   
+   For development (with auto-reload):
+   ```bash
+   npm run dev
    ```
-
-   Get your free API key at: https://www.ipqualityscore.com/
-
-3. **Start the Application**
-
+   
+   For production:
    ```bash
    npm start
    ```
 
-   For development with auto-reload:
+5. **Access the App**
+   Open your browser and navigate to:
+   > `http://localhost:3000`
 
-   ```bash
-   npm run dev
-   ```
+---
 
-4. **Access the Application**
-   - Open http://localhost:3000
-   - Login with: `admin` / `password`
-
-## 🎨 Theme Features
-
-- **Purple & Black Color Scheme** with glassmorphism effects
-- **Blurred Glass Navigation** with backdrop filters
-- **Animated Cards** with hover effects
-- **Responsive Grid Layouts**
-- **Modern Typography** and spacing
-
-## 📁 Project Structure
+## 📂 Project Structure
 
 ```
-├── views/
-│   ├── partials/
-│   │   ├── header.ejs      # Navigation with glassmorphism
-│   │   ├── footer.ejs      # Scripts and closing tags
-│   │   └── sidebar.ejs     # Admin sidebar navigation
-│   ├── login.ejs           # Login page
-│   ├── dashboard.ejs       # Main admin dashboard
-│   ├── users.ejs           # User management
-│   ├── user_form.ejs       # Add/edit users
-│   ├── templates.ejs       # Email templates
-│   ├── template_form.ejs   # Template editor
-│   ├── campaigns.ejs       # Campaign management
-│   ├── campaign_form.ejs   # Campaign creation
-│   └── phished.ejs         # User landing page
+├── app.js                  # Main application entry point
+├── models/                 # Data handling (Mock & Database models)
 ├── public/
-│   ├── css/
-│   │   └── style.css       # Glassmorphism theme
-│   └── js/
-│       └── main.js         # Frontend interactions
-├── app.js                  # Main Express application
-└── package.json           # Dependencies
+│   ├── css/                # Stylesheets (style.css, enhanced.css)
+│   └── js/                 # Client-side scripts
+├── views/                  # EJS Templates
+│   ├── partials/           # Reusable components (header, footer, sidebar)
+│   ├── landing_page.ejs    # Public Landing Page
+│   ├── dashboard.ejs       # Admin Dashboard
+│   ├── gamified_learning.ejs # Gamification Hub
+│   ├── campaign.ejs        # Campaign Management
+│   └── ...                 # Other tool and feature pages
+├── package.json            # Project dependencies
+└── README.md               # Documentation
 ```
 
-## 🔧 Next Steps for Production
+---
 
-1. **Database Integration**
+## 🔐 Default Credentials
+*(For testing purposes)*
 
-   - Replace mock data with PostgreSQL/Sequelize
-   - Set up proper data models and relationships
+- **Username:** `admin`
+- **Password:** `password`
 
-2. **Authentication**
+---
 
-   - Implement Passport.js with bcrypt
-   - Add user roles and permissions
+## 🤝 Contribution
+Contributions are welcome! Please fork the repository and submit a pull request for any enhancements or bug fixes.
 
-3. **Email Service**
+---
 
-   - Integrate SendGrid/Mailgun for email delivery
-   - Add email queue with Bull/Redis
-
-4. **Security**
-
-   - Add CSRF protection
-   - Implement rate limiting
-   - Add input validation and sanitization
-
-5. **Monitoring**
-   - Add logging with Winston
-   - Implement error tracking
-   - Add performance monitoring
-
-## 🎯 Key Components
-
-- **Glassmorphism Navigation**: Blurred glass effect with purple accents
-- **Dashboard Cards**: Animated statistics with hover effects
-- **Rich Text Editor**: Simple WYSIWYG for email templates
-- **Responsive Tables**: Mobile-friendly data display
-- **Chart Integration**: Chart.js for analytics visualization
-
-## 📧 Default Login
-
-- **Username**: `admin`
-- **Password**: `password`
-
-## 🌟 UI Highlights
-
-- Backdrop blur effects throughout the interface
-- Purple gradient backgrounds with glass overlays
-- Smooth animations and transitions
-- Mobile-responsive design
-- Dark theme optimized for security professionals
-
-## 🐛 Recent Bug Fixes
-
-✅ **All critical bugs have been fixed!** See [BUG_FIXES_REPORT.md](./BUG_FIXES_REPORT.md) for details.
-
-**Fixed Issues:**
-- ✅ Added `.env.example` template for environment variables
-- ✅ Fixed CSS syntax error in landing page
-- ✅ Removed duplicate function definitions in main.js
-- ✅ Consolidated DOMContentLoaded event listeners
-- ✅ Improved sidebar toggle with localStorage persistence
-
-Ready to enhance your organization's security awareness! 🛡️
+<p align="center">
+  Built with ❤️ by the SecureGuard Team
+</p>
